@@ -31,13 +31,17 @@ class palindrom_ADT:
             self.words.pop()
 
 
-    def write_palindromes(self):
-        f = open("palindrom.txt", "w", encoding="utf-8")
+    def write_palindromes(self, s):
+        f = open(s, "w", encoding="utf-8")
         for i in range(len(self.palindroms) - 1, 0, -1):
             f.write(self.palindroms[i] + "\n")
         f.close()
 
-base = palindrom_ADT("words.txt")
+base = palindrom_ADT("base.lst")
 base.read_dict()
 base.check_palindrome()
-base.write_palindromes()
+base.write_palindromes("palindrome_uk.txt")
+words = palindrom_ADT("words.txt")
+words.read_dict()
+words.check_palindrome()
+words.write_palindromes("palindrome_en.txt")
